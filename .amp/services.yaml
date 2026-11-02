@@ -1,0 +1,9 @@
+# Statična stran o lokalnih volitvah 2026 v občini Logatec.
+# Zagon:  amp orb services ensure
+services:
+  volitve-logatec:
+    command: python3 -m http.server "$PORT" --directory .
+    health: /
+    portal:
+      title: Volitve 2026 Logatec
+      description: Pregled kandidatov in občinskih list v občini Logatec

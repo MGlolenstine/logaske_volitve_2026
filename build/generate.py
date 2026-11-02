@@ -403,7 +403,8 @@ def kandidati_liste(l):
             opis = D.OPISI_KANDIDATOV.get(r["naziv"])
             op = ('<p class="kand-opis">%s</p>' % e(opis)) if opis else ""
             items.append(
-                '        <li><span class="kand-ime">%s. %s</span> <span class="kand-letnik">(%s)</span>%s%s</li>'
+                '        <li><span class="kand-num">%s.</span> '
+                '<span class="kand-ime">%s</span> <span class="kand-letnik">(%s)</span>%s%s</li>'
                 % (e(r["mesto"]), e(prikaz_imena(r["naziv"])), e(r["letnik"]), sv, op))
         out.append("""
     <div class="ve-block">
@@ -650,7 +651,8 @@ def stran_ks():
         lparts = []
         for ln in sorted(liste):
             items = "\n".join(
-                '          <li><span class="kand-ime">%s. %s</span> <span class="kand-letnik">(%s)</span></li>'
+                '          <li><span class="kand-num">%s.</span> '
+                '<span class="kand-ime">%s</span> <span class="kand-letnik">(%s)</span></li>'
                 % (e(r["mesto"]), e(priimak_prikaz(r["naziv"])), e(r["letnik"]))
                 for r in sorted(liste[ln], key=lambda x: int(x["mesto"])))
             lparts.append("""      <details class="prog">
